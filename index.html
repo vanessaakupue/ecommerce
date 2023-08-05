@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <title>Frontend Mentor | E-commerce product page</title>
+  <script defer src="/script.js"></script>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; padding-top: 50px ; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body >
+  <main>
+    <header>
+      <nav class="dp-flex jc-sb ai-c fl-wrap">
+        <div class="first-nav-cont dp-flex ai-c">
+          <div class="hamburger-menu dp-none">
+            <img src="/images/icon-menu.svg" alt="">
+          </div>
+
+          <div class="close-menu dp-none">
+            <img src="/images/icon-close.svg" alt="">
+          </div>
+
+          <div class="logo">
+            <img src="/images/logo.svg" alt="logo">
+          </div>
+  
+          <div class="menu dp-flex ai-c">
+            <li><a href="">Collections</a></li>
+            <li><a href="">Men</a></li>
+            <li><a href="">Women</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+          </div>
+        </div>
+        
+        <div class="second-nav-cont dp-flex jc-c ai-c jc-sb">
+          <div class="cart jc-c" id="cart-icon" onclick="toggleCart()">
+            <img src="/images/icon-cart.svg" alt="cart" id="cart-icon-img">
+            <span class="cart-qty dp-flex dp-none"  id="cartQty">
+              1
+            </span> 
+          </div>
+          <div class="profile-pic">
+            <img src="/images/image-avatar.png" alt="profile picture">
+          </div>
+        </div>
+
+        <div class="cart-dropdown dp-none br-rounded" id="cartToggle">
+          <p class="cart-name">Cart</p>
+          <div class="cart-line"></div>
+          <div class="empty-cart ta-c " id="emptyCartMessage">
+            <p class="empty-stat ">Your cart is empty.</p>
+          </div>
+          <div class="cart-content dp-none " id="cart-container">
+           
+            <div class="cart-items " id="cart-items">
+              
+              
+            </div>
+            <p id="cart-total">Total: $0.00</p>
+            <button class="checkout-btn br-rounded" id="checkout-btn" onclick="checkout()">Checkout</button>
+          </div>
+  
+        </div>
+  
+       
+      </nav>
+
+      
+    </header> 
+    
+    <div class="line dp-none"></div>
+
+    <div class="body-cont dp-flex jc-c">
+      <div class="carousel">
+        <div class="carousel-cont dp-flex ov-h">
+          <img src="/images/image-product-1.jpg" alt="image 1" onclick="showLightboxContainer(0)">
+          <img src="/images/image-product-2.jpg" alt="image 2" onclick="showLightboxContainer(1)">
+          <img src="/images/image-product-3.jpg" alt="image 3" onclick="showLightboxContainer(2)">
+          <img src="/images/image-product-4.jpg" alt="image 4" onclick="showLightboxContainer(3)">
+        </div>
+
+        <div class="thumbnail-img dp-none">
+          <img class="thumbnail br-rounded" src="/images/image-product-1-thumbnail.jpg" alt="" onclick="showCarouselImage(0)">
+          <img class="thumbnail br-rounded" src="/images/image-product-2-thumbnail.jpg" alt="" onclick="showCarouselImage(1)">
+          <img class="thumbnail br-rounded" src="/images/image-product-3-thumbnail.jpg" alt="" onclick="showCarouselImage(2)">
+          <img class="thumbnail br-rounded" src="/images/image-product-4-thumbnail.jpg" alt="" onclick="showCarouselImage(3)">
+        </div>
+
+        <div class="arrows dp-flex jc-sb ">
+          <a href="#" onclick="changeSlide(-1)" class=" prev dp-flex jc-c br-circle ai-c">
+            <img  src="/images/icon-previous.svg" alt="Previous">
+          </a>
+
+          <a href="#" onclick="changeSlide(1)" class=" next dp-flex jc-c br-circle ai-c">
+            <img src="/images/icon-next.svg" alt="Next">
+          </a>
+        </div>
+      </div>
+  
+      
+      <section>
+  
+        <p class="company-name">SNEAKER COMPANY</p>
+  
+        <h2 class="edition">Fall Limited Edition Sneakers</h2>
+  
+        <p class="body-text">     
+          These low-profile sneakers are your perfect casual wear companion. Featuring a 
+          durable rubber outer sole, they’ll withstand everything the weather can offer.
+        </p>
+  
+        <div class="price dp-flex ai-c jc-c jc-sb ">
+          <div class="price-cont dp-flex ai-c">
+            <p class="current-price">$125.00</p>
+            <p class="discount">50%</p>
+          </div>
+  
+          <div class="former-price">
+            <s>$250.00</s>
+          </div>
+        </div>
+  
+        <div class="buttons">
+          <div class="quantity dp-flex ai-c jc-sb br-rounded">
+            <button class="decrease-btn"><img src="/images/icon-minus.svg" alt=""></button>
+            <input type="number" class="quantity-input ta-c" value="0">
+            <button class="increase-btn"><img src="/images/icon-plus.svg" alt=""></button>
+          </div>
+  
+          <div class="cart-btn">
+            <button class="cart-button br-rounded" onclick="addItemToCart()">
+              <img src="/images/icon-cart.svg" class="add-to-cart" alt="cart">
+              Add to cart
+            </button>
+          </div>
+        </div>
+       
+        
+      </section>
+    </div>
+
+    <div class="lightbox">
+      <div class="lightbox-inner-cont">
+        <div class="lightbox-close">
+          <img src="/images/icon-close.svg" alt="">
+        </div>
+        <div class="lightbox-cont dp-flex ov-h">
+          <img  src="/images/image-product-1.jpg" alt="image 1" class=" br-rounded">
+          <img  src="/images/image-product-2.jpg" alt="image 2" class=" br-rounded">
+          <img  src="/images/image-product-3.jpg" alt="image 3" class=" br-rounded">
+          <img  src="/images/image-product-4.jpg" alt="image 4" class=" br-rounded">
+        </div>
+
+        <div class="thumbnail-lgb-img ">
+          <img class="thumbnail-lgb br-rounded" src="/images/image-product-1-thumbnail.jpg" alt="" onclick="showLightboxImage(0)">
+          <img class="thumbnail-lgb br-rounded" src="/images/image-product-2-thumbnail.jpg" alt="" onclick="showLightboxImage(1)">
+          <img class="thumbnail-lgb br-rounded" src="/images/image-product-3-thumbnail.jpg" alt="" onclick="showLightboxImage(2)">
+          <img class="thumbnail-lgb br-rounded" src="/images/image-product-4-thumbnail.jpg" alt="" onclick="showLightboxImage(3)">
+        </div>
+
+        <div class="lightbox-arrows dp-flex ">
+          <a href="#" onclick="changeSlideLgb(-1)" class=" prev-lgb dp-flex jc-c br-circle ai-c">
+            <img  src="/images/icon-previous.svg" alt="Previous">
+          </a>
+
+          <a href="#" onclick="changeSlideLgb(1)" class=" next-lgb dp-flex jc-c br-circle ai-c">
+            <img src="/images/icon-next.svg" alt="Next">
+          </a>
+        </div>
+      </div>
+       
+    </div>
+
+      
+  </main>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+
+  <!-- <scrip src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+  <!-- <script src="/script.js"></script> -->
+</body>
+</html>
